@@ -57,6 +57,8 @@ body {
 .heading-primary {
     color: #ffffff;
     text-transform: uppercase;
+
+    backface-visibility: hidden; /* fixes the vertical shaking after animation */
 }
 
 .heading-primary-main {
@@ -64,6 +66,10 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
@@ -71,8 +77,46 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
+/* animation for heading-primary-main */
 @keyframes moveInLeft {
-    
+    /* before animation */
+    0% {
+        opacity: 0;
+        transform: translateX(-100px); /* starting look*/
+    }
+
+    /* at 80% of animation */
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform:translate(0); /* default look */
+    }
+}
+
+/* animation for heading-primary-sub */
+@keyframes movexInRight {
+    /* before animation */
+    0% {
+        opacity: 0;
+        transform: translateX(100px); /* starting look*/
+    }
+
+    /* at 80% of animation */
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform:translate(0); /* default look */
+    }
 }
