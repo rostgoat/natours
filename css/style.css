@@ -33,6 +33,46 @@ body {
         url(../img/hero.jpg); /* linear gradient on top, image on bottom*/
     background-size: cover; /* tries to fit image in view port height*/
     background-position: top; /* image stays at top when view port size is changed*/
-
+    position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 75vh,0 100% ); /* white triangle at bottom*/
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px; /* counts from parent's relative position top*/
+    left: 40px; /* counts from parent's relative position left*/
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position:absolute;
+    top: 40%; /* 40% top of the PARENT element*/
+    left: 50%; /* 50% left of the PARENT element*/
+    transform: translate(-50%, -50%); /* shifts 50% of the ELEMENT'S height and width to center*/
+}
+
+.heading-primary {
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block; /* separate block which occupies 100% of width*/
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+}
+
+@keyframes moveInLeft {
+    
 }
