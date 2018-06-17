@@ -52,6 +52,7 @@ body {
     top: 40%; /* 40% top of the PARENT element*/
     left: 50%; /* 50% left of the PARENT element*/
     transform: translate(-50%, -50%); /* shifts 50% of the ELEMENT'S height and width to center*/
+    text-align: center; /* centers all text including button*/
 }
 
 .heading-primary {
@@ -59,6 +60,7 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden; /* fixes the vertical shaking after animation */
+    margin-bottom:60px;
 }
 
 .heading-primary-main {
@@ -103,7 +105,7 @@ body {
 }
 
 /* animation for heading-primary-sub */
-@keyframes movexInRight {
+@keyframes moveInRight {
     /* before animation */
     0% {
         opacity: 0;
@@ -119,4 +121,32 @@ body {
         opacity: 1;
         transform:translate(0); /* default look */
     }
+}
+
+/* styling states for button : here we want visited state to look the same as link*/
+.btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display:inline-block; /* treats button as text */
+    border-radius: 100px;
+    transition: all .2s; /* transition all properties */
+
+}
+
+/* when button is hovered over */
+.btn:hover {
+    transform: translateY(-3px); /* move button up on hover*/
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* args: x, y, blur, color*/
+}
+
+/* when button is clicked */
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2); /* args: x, y, blur, color*/
+}
+
+.btn-white {
+    background-color: #ffffff;
+    color:#777;
 }
