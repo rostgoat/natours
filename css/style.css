@@ -8,19 +8,27 @@ Dark green: #28b485
 */
 
 /* universal selector for all browsers */
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
+}
+
+html {
+    /*font-size: 10px; !* 10px = 1 rem*!*/
+    font-size: 62.5%; /* 10px/16px = .625 or 62.5% which is the same as 10px above. */
 }
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /*font-size: 16px;*/
     line-height: 1.7;
     color:#777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 }
 
 .header {
@@ -39,12 +47,12 @@ body {
 
 .logo-box {
     position: absolute;
-    top: 40px; /* counts from parent's relative position top*/
-    left: 40px; /* counts from parent's relative position left*/
+    top: 4rem; /* counts from parent's relative position top*/
+    left: 4rem; /* counts from parent's relative position left*/
 }
 
 .logo {
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box {
@@ -60,14 +68,14 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden; /* fixes the vertical shaking after animation */
-    margin-bottom:60px;
+    margin-bottom:6rem;
 }
 
 .heading-primary-main {
     display: block; /* separate block which occupies 100% of width*/
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -76,9 +84,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
 
     animation-name: moveInRight;
     animation-duration: 1s;
@@ -90,12 +98,12 @@ body {
     /* before animation */
     0% {
         opacity: 0;
-        transform: translateX(-100px); /* starting look*/
+        transform: translateX(-10rem); /* starting look*/
     }
 
     /* at 80% of animation */
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     100% {
@@ -109,12 +117,12 @@ body {
     /* before animation */
     0% {
         opacity: 0;
-        transform: translateX(100px); /* starting look*/
+        transform: translateX(10rem); /* starting look*/
     }
 
     /* at 80% of animation */
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     100% {
@@ -128,23 +136,24 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display:inline-block; /* treats button as text */
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s; /* transition all properties */
     position: relative;
+    font-size: 1.6rem;
 }
 
 /* when button is hovered over */
 .btn:hover {
     transform: translateY(-3px); /* move button up on hover*/
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* args: x, y, blur, color*/
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2); /* args: x, y, blur, color*/
 }
 
 /* when button is clicked */
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2); /* args: x, y, blur, color*/
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.2); /* args: x, y, blur, color*/
 }
 
 .btn-white {
@@ -157,7 +166,7 @@ body {
     display: inline-block;
     height: 100%; /* 100% of parent, which is button*/
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute; /* puts this element behind*/
     top: 0;
     left: 0;
@@ -183,7 +192,7 @@ body {
 @keyframes moveFromBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px); /* starting look*/
+        transform: translateY(3rem); /* starting look*/
     }
 
     100% {
