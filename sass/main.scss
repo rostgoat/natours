@@ -1,0 +1,200 @@
+$color-primary-light: #7ed56f;
+$color-primary: #55c57a;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+
+/* universal selector for all browsers */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /*font-size: 10px; !* 10px = 1 rem*!*/
+  font-size: 62.5%; /* 10px/16px = .625 or 62.5% which is the same as 10px above. */
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.header {
+  height: 95vh; /* 95 % height of view port*/
+  background-image: linear-gradient(
+                  to right bottom,
+                  rgba($color-primary-light, 0.8),
+                  rgba($color-primary-dark, 0.8)
+  ),
+  url(../img/hero.jpg); /* linear gradient on top, image on bottom*/
+  background-size: cover; /* tries to fit image in view port height*/
+  background-position: top; /* image stays at top when view port size is changed*/
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh,0 100% ); /* white triangle at bottom*/
+}
+
+.header__logo-box {
+  position: absolute;
+  top: 4rem; /* counts from parent's relative position top*/
+  left: 4rem; /* counts from parent's relative position left*/
+}
+
+.header__logo {
+  height: 3.5rem;
+}
+
+.header__text-box {
+  position:absolute;
+  top: 40%; /* 40% top of the PARENT element*/
+  left: 50%; /* 50% left of the PARENT element*/
+  transform: translate(-50%, -50%); /* shifts 50% of the ELEMENT'S height and width to center*/
+  text-align: center; /* centers all text including button*/
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  backface-visibility: hidden; /* fixes the vertical shaking after animation */
+  margin-bottom:6rem;
+}
+
+.heading-primary--main {
+  display: block; /* separate block which occupies 100% of width*/
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+/* animation for heading-primary-main */
+@keyframes moveInLeft {
+  /* before animation */
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); /* starting look*/
+  }
+
+  /* at 80% of animation */
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform:translate(0); /* default look */
+  }
+}
+
+/* animation for heading-primary-sub */
+@keyframes moveInRight {
+  /* before animation */
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); /* starting look*/
+  }
+
+  /* at 80% of animation */
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform:translate(0); /* default look */
+  }
+}
+
+/* styling states for button : here we want visited state to look the same as link*/
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display:inline-block; /* treats button as text */
+  border-radius: 10rem;
+  transition: all .2s; /* transition all properties */
+  position: relative;
+  font-size: 1.6rem;
+}
+
+/* when button is hovered over */
+.btn:hover {
+  transform: translateY(-3px); /* move button up on hover*/
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.2); /* args: x, y, blur, color*/
+}
+
+/* when button is clicked */
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,0.2); /* args: x, y, blur, color*/
+}
+
+.btn--white {
+  background-color: $color-white;
+  color:$color-grey-dark;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%; /* 100% of parent, which is button*/
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute; /* puts this element behind*/
+  top: 0;
+  left: 0;
+  z-index: -1; /* puts this element behind the button */
+  transition: all .4s;
+}
+
+.btn--white::after {
+  background-color: $color-white;
+}
+
+.btn:hover::after {
+  transform:scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn--animated {
+  animation: moveFromBottom .9s ease-out;
+  animation-fill-mode: backwards; /* sets all styling at animation beginning to 0 (invinsible)*/
+}
+
+/* animation for button */
+@keyframes moveFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); /* starting look*/
+  }
+
+  100% {
+    opacity: 1;
+    transform:translate(0); /* default look */
+  }
+}
