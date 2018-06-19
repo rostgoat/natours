@@ -29,6 +29,7 @@
     box-shadow: 0 .5rem 1rem rgba($color-black,0.2); /* args: x, y, blur, color*/
   }
 
+  /* button colors */
   &--white {
     background-color: $color-white;
     color:$color-grey-dark;
@@ -36,9 +37,9 @@
     &::after {
       background-color: $color-white;
     }
-
   }
 
+  /* animation element for hover*/
   &::after {
     content: "";
     display: inline-block;
@@ -52,6 +53,7 @@
     transition: all .4s;
   }
 
+  // button animation
   &--animated {
     animation: moveFromBottom .9s ease-out;
     animation-fill-mode: backwards; /* sets all styling at animation beginning to 0 (invinsible)*/
