@@ -1,0 +1,60 @@
+.btn {
+  /* styling states for button : here we want visited state to look the same as link*/
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display:inline-block; /* treats button as text */
+    border-radius: 10rem;
+    transition: all .2s; /* transition all properties */
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  /* when button is hovered over */
+  &:hover {
+    transform: translateY(-3px); /* move button up on hover*/
+    box-shadow: 0 1rem 2rem rgba($color-black,0.2); /* args: x, y, blur, color*/
+
+    &::after {
+      transform:scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* when button is clicked */
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black,0.2); /* args: x, y, blur, color*/
+  }
+
+  &--white {
+    background-color: $color-white;
+    color:$color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%; /* 100% of parent, which is button*/
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute; /* puts this element behind*/
+    top: 0;
+    left: 0;
+    z-index: -1; /* puts this element behind the button */
+    transition: all .4s;
+  }
+
+  &--animated {
+    animation: moveFromBottom .9s ease-out;
+    animation-fill-mode: backwards; /* sets all styling at animation beginning to 0 (invinsible)*/
+  }
+}
+
