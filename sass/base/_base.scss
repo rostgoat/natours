@@ -1,0 +1,17 @@
+/* universal selector for all browsers */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /*font-size: 10px; !* 10px = 1 rem*!*/
+  font-size: 62.5%; /* 10px/16px = .625 or 62.5% which is the same as 10px above. */
+}
+
+body {
+  box-sizing: border-box;
+}
