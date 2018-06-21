@@ -9,6 +9,7 @@
   background-size: cover; /* tries to fit image in view port height*/
   background-position: top; /* image stays at top when view port size is changed*/
   position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh,0 100% );
   clip-path: polygon(0 0, 100% 0, 100% 75vh,0 100% ); /* white triangle at bottom*/
 
   // & is equivelant to .header
