@@ -12,11 +12,12 @@
 @import "components/card";
 @import "components/composition";
 @import "components/feature_box";
-@import "components/footer";
 @import "components/form";
 @import "components/story";
 
+@import "layouts/footer";
 @import "layouts/header";
 @import "layouts/grid";
+@import "layouts/navigation";
 
 @import "pages/home";
