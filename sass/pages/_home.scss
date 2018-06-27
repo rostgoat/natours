@@ -6,6 +6,10 @@
   @include respond(tab-port) {
     padding: 20rem 0;
   }
+
+  @include respond(tab-land) {
+    padding: 20rem 5rem;
+  }
 }
 
 .section-features {
@@ -21,13 +25,21 @@
   transform: skewY(-7deg);
   margin-top: -10rem;
 
+  .row-features {
+    align-content: center;
+  }
+
   // selects direct children of this class (which is ONLY THE ROW, nothing else)
   & > * {
     transform: skewY(7deg);
   }
 
   @include respond(tab-port) {
-    padding: 10rem 0;
+    padding: 10rem 2rem;
+  }
+
+  @include respond(tab-land) {
+    padding: 20rem 5rem;
   }
 }
 
@@ -81,7 +93,7 @@
   @include respond(tab-port) {
     background-image: linear-gradient(to right,
             rgba($color-white, .9) 0%,
-            rgba($color-white, .9) 100%,
+            rgba($color-white, .9) 100%
             ),
     url(../img/nat-10.jpg);
   }
