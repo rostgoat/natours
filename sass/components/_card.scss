@@ -167,6 +167,9 @@
 
       }
     }
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
 
     &:hover &__side--back {
       transform: rotateY(0);
