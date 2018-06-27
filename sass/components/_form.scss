@@ -15,6 +15,10 @@
     color: inherit; // input elements must inherit
     transition: all .3s; // border color transition
 
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
     // when moving around using tab, this will come into focus
     &:focus {
       outline: none;
@@ -52,6 +56,15 @@
   &__radio-group {
     width: 49%;
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    @include respond(tab-port) {
+
+    }
   }
 
   &__radio-input {
