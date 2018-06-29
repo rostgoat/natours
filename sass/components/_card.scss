@@ -13,6 +13,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; // hides the back part of an element
     border-radius: 3px;
     overflow: hidden; // image cannot overflow parent to preserve round corners
