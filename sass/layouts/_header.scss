@@ -1,0 +1,58 @@
+.header {
+  height: 85vh; /* 95 % height of view port*/
+  background-image: linear-gradient(
+                  to right bottom,
+                  rgba($color-primary-light, 0.8),
+                  rgba($color-primary-dark, 0.8)
+  ),
+  url(../img/hero-small.jpg); /* linear gradient on top, image on bottom*/
+  background-size: cover; /* tries to fit image in view port height*/
+  background-position: top; /* image stays at top when view port size is changed*/
+  position: relative;
+
+
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh,0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 75vh,0 100% ); /* white triangle at bottom*/
+    height: 95vh;
+  }
+
+
+  // 600/16 = 37.5em or 2000/16 = 125em
+  // (when width is larger than 37.5em OR 125em) AND we have 192dpi screen, display high res image
+  // second AND condition is for safari support
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+         only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+         only screen and (min-width: 125em) {
+    background-image: linear-gradient(
+                    to right bottom,
+                    rgba($color-primary-light, 0.8),
+                    rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  }
+
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh,0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 85vh,0 100% ); /* white triangle at bottom*/
+  }
+
+  // & is equivelant to .header
+  &__logo-box {
+    position: absolute;
+    top: 4rem; /* counts from parent's relative position top*/
+    left: 4rem; /* counts from parent's relative position left*/
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position:absolute;
+    top: 40%; /* 40% top of the PARENT element*/
+    left: 50%; /* 50% left of the PARENT element*/
+    transform: translate(-50%, -50%); /* shifts 50% of the ELEMENT'S height and width to center*/
+    text-align: center; /* centers all text including button*/
+  }
+}

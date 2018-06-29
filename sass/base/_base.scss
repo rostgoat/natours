@@ -1,0 +1,47 @@
+/* universal selector for all browsers */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /*
+  this defines 1 rem
+  font-size: 10px; !* 10px = 1 rem*!
+  10px/16px = .625 or 62.5% which is the same as 10px above.
+  */
+  font-size: 62.5%;
+
+  // ORDER MATTERS! LARGER FIRST
+  @include respond(tab-land) { // width < 1200?
+    font-size: 56.25%; // we want 1 rem = 9px. 9/16 = .5
+  }
+
+  // works both for phone and tab port
+  @include respond(tab-port) { // width < 600
+    font-size: 50%; // we want 1 rem = 8px. 8/16 = .5
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // we want 1 rem = 12px. 12/16 = .75
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) { // width < 600
+    padding: 0;
+  }
+
+}
+
+// custom color for text selection
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
