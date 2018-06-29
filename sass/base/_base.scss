@@ -39,3 +39,9 @@ body {
   }
 
 }
+
+// custom color for text selection
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
