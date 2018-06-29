@@ -22,7 +22,7 @@
   // (when width is larger than 37.5em OR 125em) AND we have 192dpi screen, display high res image
   // second AND condition is for safari support
   @media (min-resolution: 192dpi) and (min-width: 37.5em),
-          (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em)
+          (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
           (min-width: 125em) {
     background-image: linear-gradient(
                     to right bottom,
